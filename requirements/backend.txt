@@ -1,0 +1,10 @@
+# pip install -r requirements/backend.txt
+
+
+fastapi
+uvicorn
+python-multipart
+pillow
+numpy
+tensorflow
+jinja2

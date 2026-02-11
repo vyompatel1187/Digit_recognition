@@ -1,0 +1,6 @@
+# pip install -r requirements/dev.txt
+
+
+ipython
+jupyter
+black

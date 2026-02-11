@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Handwritten Digit Recognition</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/analytics.js"></script>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <nav class="navbar ">
+        <div class="container justify-content-center">
+            <span class="navbar-brand mb-0 h1">Handwritten Digit Recognition</span>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container mt-5">
+
+        <div class="row justify-content-center">
+            <!-- MAIN CARD -->
+            <div class="col-lg-6 col-md-8 col-sm-10 mb-4">
+                <div class="card shadow-lg">
+                    <div class="card-body text-center">
+
+                        <h4 class="card-title mb-4">Upload or Draw a Digit</h4>
+
+                        <!-- UPLOAD PLACEHOLDER -->
+                        <h6 style="text-align: left;">Upload a digit image</h6>
+                        <input type="file" id="uploadImage" class="form-control mb-3" accept="image/*" .
+                            onchange="previewImage(event)">
+
+                        <!-- DRAW PLACEHOLDER -->
+                        <h6 style="text-align: left;">Draw a digit in below box</h6>
+                        <canvas id="digitCanvas" width="280" height="280" class="digit-box mb-3"></canvas>
+                        <button class="btn btn-secondary w-100 mb-3" onclick="clearCanvas()">Clear Drawing</button>
+
+
+                        <!-- PREDICT BUTTON -->
+                        <button class="btn btn-primary w-100 mb-3" onclick="predictDigit()">Predict Digit</button>
+
+                        <!-- RESULT BOX -->
+                        <div class="result-box text-center">
+                            <h5 class="result-title">Prediction Result</h5>
+                            <div id="predicted-digit" class="predicted-digit">?</div>
+                            <div id="confidence-text" class="confidence-text">Confidence: --%</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row mt-4">
+            <!-- History Card -->
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4 d-flex">
+                <div class="card shadow equal-height-card flex-fill">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5>History</h5>
+
+                        <div id="history-container" class="history-container">
+                            <p class="text-muted text-center">No predictions yet</p>
+                        </div>
+
+                        <button class="btn btn-danger w-100 mt-3" onclick="clearHistory()">
+                            Clear History
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Card -->
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4 d-flex">
+                <div class="card shadow equal-height-card flex-fill">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5>Analytics & Charts</h5>
+
+                        <canvas id="digitChart"></canvas>
+                        <p id="avgConfidence"></p>
+                        <p id="totalPredictions"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- draw JS  -->
+        <script src="/static/js/draw.js"></script>
+
+</body>
+
+</html>
